@@ -1,0 +1,52 @@
+.booking-details-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .booking-details-container {
+        width: 100%;
+        max-width: 1300px;
+        padding: 40px !important;
+    }
+}
+
+
+.booking-details-container {
+    background-color: rgb(49, 53, 57);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.guest-label {
+    color: rgb(153, 153, 153);
+}
+
+/* Tvinga wrappern att fylla hela kolumnen */
+.react-datepicker-wrapper {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Gör själva input-rutan till en riktig Bootstrap-ruta */
+.react-datepicker__input-container input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Fixa gäst-inputen så den ser exakt likadan ut */
+.booking-details-container input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+}

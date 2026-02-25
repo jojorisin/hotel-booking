@@ -27,7 +27,8 @@ h2 {
 
 .about-container {
     padding-top: 60px;
-    background-color: rgb(240, 236, 243);
+    background-color: rgb(49, 53, 57);
+    color: white;
     border: 1px solid rgb(215, 215, 215);
 
 }
@@ -94,5 +95,5 @@ h2 {
     text-align: left;
     line-height: 1.6;
     font-size: 1.3rem;
-    color: rgb(63, 63, 66);
+
 }
