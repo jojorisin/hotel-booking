@@ -1,27 +1,44 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './DatePickerComponent.css';
+import Button from 'react-bootstrap/Button';
+
 
 function DatePickerComponent({ setPage, setBookingDetails }) {
-    const [arrivalDate, setArrivalDate] = useState(null);
-    const [departureDate, setDepartureDate] = useState(null);
+    const [arrival, setArrival] = useState(null);
+    const [departure, setDeparture] = useState(null);
     const [guests, setGuests] = useState(1);
 
     const handleCheck = () => {
-        setBookingDetails({ arrivalDate, departureDate, guests });
+        setBookingDetails({ arrivalDate: arrival, departureDate: departure, guests });
         setPage('booking');
 
 
     }
 
     return (
-        <div className="date-picker-container">
-            <DatePicker selected={arrivalDate} onChange={(date) => setArrivalDate(date)} placeholderText="Arrival" />
-            <DatePicker selected={departureDate} onChange={(date) => setDepartureDate(date)} placeholderText="Departure" />
-            <label>Guests</label>
-            <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} />
-            <button onClick={handleCheck}>Check Availability</button>
-        </div>
+        <Container className="hero-datepicker-container mt-4 mb-5">
+            <Row className="hero-datepicker-row">
+                <Col xs={12} md={4} className="d-flex align-items-center">
+                    <label className="form-label"></label>
+                    <DatePicker selected={arrival} onChange={(date) => setArrival(date)} placeholderText="Arrival" />
+                </Col>
+                <Col xs={12} md={4} className="d-flex align-items-center">
+                    <label className="form-label"></label>
+                    <DatePicker selected={departure} onChange={(date) => setDeparture(date)} placeholderText="Departure" />
+                </Col>
+                <Col xs={12} md={4} className="d-flex align-items-center justify-content-center justify-content-md-start">
+                    <label className="hero-guest-label form-label me-2 mb-0">Guests</label>
+                    <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} />
+                </Col>
+                <Col className="mt-4" xs={12}><Button className="check-btn" onClick={handleCheck}>Check Availability</Button></Col>
+
+            </Row>
+        </Container>
     )
 
 }
