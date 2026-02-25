@@ -1,0 +1,98 @@
+.mission-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+
+
+}
+
+.values-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    padding-bottom: 100px;
+
+
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+
+
+.about-container {
+    padding-top: 60px;
+    background-color: rgb(240, 236, 243);
+    border: 1px solid rgb(215, 215, 215);
+
+}
+
+
+.mission-image-container {
+    flex: 1;
+    padding-top: 100px;
+
+}
+
+.values-image-container {
+    flex: 1;
+}
+
+.about-quote {
+    font-size: 5rem;
+    font-style: italic;
+    text-align: center;
+    margin: 150px auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    line-height: 1.4;
+    background-color: white;
+    color: rgb(74, 74, 79);
+    border: 1px solid rgb(192, 192, 201);
+}
+
+.mission-container {
+    padding-left: 15%;
+    flex: 1;
+}
+
+.values-container {
+    flex: 2;
+}
+
+.values-image {
+    width: 100%;
+    height: auto;
+    padding-left: 100px;
+
+}
+
+.mission-image {
+    width: 70%;
+    height: auto;
+
+}
+
+.mission-content {
+    width: 60%;
+    height: auto;
+}
+
+.values-content {
+    width: 50%;
+    height: auto;
+    padding-left: 300px;
+}
+
+.mission-content p,
+.values-content p {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1.3rem;
+    color: rgb(63, 63, 66);
+}
