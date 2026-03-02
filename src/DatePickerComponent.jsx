@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 
 function DatePickerComponent({ setPage, setBookingDetails }) {
-    const [arrivalDate, setArrivalDate] = useState(null);
+    const [arrivalDate, setArrivalDate] = useState(new Date());
     const [departureDate, setDepartureDate] = useState(null);
     const [guests, setGuests] = useState(1);
 

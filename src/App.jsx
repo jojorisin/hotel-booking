@@ -4,6 +4,7 @@ import Home from './Home'
 import './App.css'
 import About from './About'
 import Footer from './Footer'
+import Contact from './Contact'
 
 function App() {
   const [page, setPage] = useState('home')
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="home-header">
+      <header className="home-header shadow-sm">
         <div className="header-spacer"></div>
 
         <img src="/logo3.png" alt="bautasten logo" className="header-logo" />
@@ -34,6 +35,8 @@ function App() {
         {page === 'booking' && <Booking setPage={setPage} bookingDetails={bookingDetails} setBookingDetails={setBookingDetails} />}
 
         {page === 'about' && <About setPage={setPage} />}
+
+        {page === 'contact' && <Contact setPage={setPage} />}
 
       </main>
       <Footer />
