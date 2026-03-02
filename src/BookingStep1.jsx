@@ -10,7 +10,7 @@ import './BookingStep1.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
-    const [arrivalDate, setArrivalDate] = useState(bookingDetails.arrivalDate || null);
+    const [arrivalDate, setArrivalDate] = useState(bookingDetails.arrivalDate || new Date());
     const [departureDate, setDepartureDate] = useState(bookingDetails.departureDate || null);
     const [guests, setGuests] = useState(bookingDetails.guests || 1);
     const [selectedRoom, setSelectedRoom] = useState(rooms[0]);
@@ -40,7 +40,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
             alert("Please fill in all fields before continuing.");
             return;
         }
-        setBookingDetails(prev => ({ ...prev, arrivalDate: arrivalDate, departureDate: departureDate, guests: guests, selectedRoom: { name: room.name, price: room.totalCost } }));
+        setBookingDetails(prev => ({ ...prev, arrivalDate: arrivalDate, departureDate: departureDate, guests: guests, nights: nights, selectedRoom: { name: room.name, totalCost: room.totalCost, price: room.price } }));
         setStep(2);
 
     }
@@ -51,7 +51,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
             setArrivalDate(bookingDetails.arrivalDate);
         }
         if (bookingDetails?.departureDate) {
-            setDeparture(bookingDetails.departureDate);
+            setDepartureDate(bookingDetails.departureDate);
         }
         if (bookingDetails?.guests) {
             setGuests(bookingDetails.guests);
@@ -62,7 +62,8 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
 
     return (
         <> <form onSubmit={(e) => e.preventDefault()}>
-            <Container className="booking-details-container mb-5 shadow-sm">
+            <Container className="border-bottom border-secondary bg-light booking-details-container mb-5 shadow-sm">
+                <h2>Pick your stay</h2>
                 <Row className="align-items-center py-3 ">
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="form-label"></label>
@@ -70,7 +71,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
                     </Col>
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="form-label"></label>
-                        <DatePicker className="form-control" selected={departureDate} onChange={(date) => setDeparture(date)} placeholderText="Departure" minDate={getMinDepartureDate(arrivalDate)} required />
+                        <DatePicker className="form-control" selected={departureDate} onChange={(date) => setDepartureDate(date)} placeholderText="Departure" minDate={getMinDepartureDate(arrivalDate)} required />
                     </Col>
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="guest-label form-label me-2 mb-0">Guests</label>
@@ -80,7 +81,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
                 </Row>
             </Container>
 
-            <Container>
+            <Container className="mb-5">
                 <Row className="g-5">
 
                     {rooms.map((room) => (
