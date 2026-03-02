@@ -4,8 +4,8 @@ function BookingStep2({ setPage, bookingDetails }) {
 
     const handleSubmit = () => {
         const bookingData = {
-            arrival: bookingDetails.arrivalDate.toLocaleDateString('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }),
-            departure: bookingDetails.departureDate.toLocaleDateString('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }),
+            arrivalDate: bookingDetails.arrivalDate.toLocaleDateString('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }),
+            departureDate: bookingDetails.departureDate.toLocaleDateString('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }),
             guests: bookingDetails.guests,
             room: bookingDetails.selectedRoom.name,
             price: bookingDetails.selectedRoom.price,
