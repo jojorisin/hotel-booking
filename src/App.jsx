@@ -3,6 +3,7 @@ import Booking from './Booking'
 import Home from './Home'
 import './App.css'
 import About from './About'
+import Footer from './Footer'
 
 function App() {
   const [page, setPage] = useState('home')
@@ -35,6 +36,7 @@ function App() {
         {page === 'about' && <About setPage={setPage} />}
 
       </main>
+      <Footer />
     </div>
   );
 }

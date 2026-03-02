@@ -10,20 +10,37 @@ import './BookingStep1.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
-    const [arrival, setArrival] = useState(null);
-    const [departure, setDeparture] = useState(null);
-    const [guests, setGuests] = useState(1);
-
+    const [arrivalDate, setArrivalDate] = useState(bookingDetails.arrivalDate || null);
+    const [departureDate, setDepartureDate] = useState(bookingDetails.departureDate || null);
+    const [guests, setGuests] = useState(bookingDetails.guests || 1);
     const [selectedRoom, setSelectedRoom] = useState(rooms[0]);
+
+    const calculateNights = (arrivalDate, departureDate) => {
+        if (arrivalDate && departureDate) {
+            const timeDiff = departureDate.getTime() - arrivalDate.getTime();
+            return Math.ceil(timeDiff / (1000 * 3600 * 24));
+        }
+        return 0;
+    }
+    const nights = calculateNights(arrivalDate, departureDate);
+
+    const getMinDepartureDate = (arrivalDate) => {
+        if (!arrivalDate) return new Date(); // Om inget valt, använd idag
+
+        const nextDay = new Date(arrivalDate); // Skapa en kopia av ankomstdatumet
+        nextDay.setDate(nextDay.getDate() + 1); // Plussa på 1 i "dag-fältet"
+        return nextDay;
+    };
+
 
 
 
     const handleBookNow = (room) => {
-        if (!arrival || !departure || !guests) {
+        if (!arrivalDate || !departureDate || !guests) {
             alert("Please fill in all fields before continuing.");
             return;
         }
-        setBookingDetails(prev => ({ ...prev, arrivalDate: arrival, departureDate: departure, guests: guests, selectedRoom: { name: room.name, price: room.price } }));
+        setBookingDetails(prev => ({ ...prev, arrivalDate: arrivalDate, departureDate: departureDate, guests: guests, selectedRoom: { name: room.name, price: room.totalCost } }));
         setStep(2);
 
     }
@@ -31,35 +48,40 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
 
     useEffect(() => {
         if (bookingDetails?.arrivalDate) {
-            setArrival(bookingDetails.arrivalDate);
+            setArrivalDate(bookingDetails.arrivalDate);
         }
         if (bookingDetails?.departureDate) {
             setDeparture(bookingDetails.departureDate);
+        }
+        if (bookingDetails?.guests) {
+            setGuests(bookingDetails.guests);
+
         }
     }, [bookingDetails])
 
 
     return (
-        <>
-            <Container className="booking-details-container mb-5">
-                <Row className="booking-details-container">
+        <> <form onSubmit={(e) => e.preventDefault()}>
+            <Container className="booking-details-container mb-5 shadow-sm">
+                <Row className="align-items-center py-3 ">
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="form-label"></label>
-                        <DatePicker selected={arrival} onChange={(date) => setArrival(date)} placeholderText="Arrival" />
+                        <DatePicker className="form-control" selected={arrivalDate} onChange={(date) => setArrivalDate(date)} placeholderText="Arrival" minDate={new Date()} required />
                     </Col>
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="form-label"></label>
-                        <DatePicker selected={departure} onChange={(date) => setDeparture(date)} placeholderText="Departure" />
+                        <DatePicker className="form-control" selected={departureDate} onChange={(date) => setDeparture(date)} placeholderText="Departure" minDate={getMinDepartureDate(arrivalDate)} required />
                     </Col>
                     <Col xs={12} md={4} className="d-flex align-items-center">
                         <label className="guest-label form-label me-2 mb-0">Guests</label>
-                        <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} />
+                        <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(parseInt(e.target.value))} />
                     </Col>
 
                 </Row>
             </Container>
+
             <Container>
-                <Row>
+                <Row className="g-5">
 
                     {rooms.map((room) => (
                         <Col xs={12} key={room.name}>
@@ -71,8 +93,9 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
                                 description={room.description}
                                 amenities={room.amenities}
                                 price={room.price}
+                                nights={nights}
+                                totalCost={nights * room.price}
                                 onSelect={handleBookNow}
-                                setStep={setStep}
                             />
                         </Col>
 
@@ -81,6 +104,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
 
                 </Row>
             </Container>
+        </form>
         </>
 
 
