@@ -28,7 +28,7 @@ function Room({ name, exteriorImage, interiorImage, description, amenities, pric
                     <Col className="cost-and-book mt-5" xs={12} md={6}>
                         <p className="fw-semibold mb-1">Total cost for {nights}{nights === 1 ? " night" : " nights"}: €{totalCost}</p>
                         <p className="text-body-secondary">Cost per night: €{price}</p>
-                        <Button type="submit" className="book-now-btn" size="lg" onClick={() => { onSelect({ name, totalCost }); }}>Book now</Button>
+                        <Button type="submit" className="book-now-btn" size="lg" onClick={() => { onSelect({ name, totalCost, price }); }}>Book now</Button>
                     </Col>
                 </Row>
             </Col>

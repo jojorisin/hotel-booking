@@ -8,7 +8,7 @@ function Booking({ setPage, bookingDetails, setBookingDetails }) {
     return (
         <>
             {step === 1 && <BookingStep1 setStep={setStep} bookingDetails={bookingDetails} setBookingDetails={setBookingDetails} />}
-            {step === 2 && <BookingStep2 setStep={setStep} bookingDetails={bookingDetails} />}
+            {step === 2 && <BookingStep2 setStep={setStep} setPage={setPage} bookingDetails={bookingDetails} />}
         </>
     );
 }
