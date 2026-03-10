@@ -1,56 +1,80 @@
 .booking-details-container {
-    width: 95%;
-    margin: 0 auto;
+  width: 95%;
+  margin: 0 auto;
 }
-
-
 
 @media (min-width: 992px) {
-    .booking-details-container {
-        width: 100%;
-        max-width: 1300px;
-        padding: 40px !important;
-    }
+  .booking-details-container {
+    width: 100%;
+    max-width: 1300px;
+    padding: 40px !important;
+  }
 }
+@media (max-width: 768px) {
+  .react-datepicker,
+  .react-datepicker__month-container {
+    width: 100% !important;
+    display: block;
+  }
 
+  .react-datepicker__day-name,
+  .react-datepicker__day {
+    /* Justerar storleken på dagarna så de sprids ut jämnt */
+    width: 13% !important;
+    margin: 0.5% !important;
+    line-height: 2.5rem; /* Gör dagarna lite högre/lättare att klicka på */
+  }
+
+  /* Tar bort fasta bredder på den yttre containern */
+  .react-datepicker__month {
+    margin: 0;
+  }
+}
 
 .booking-details-container {
-    background-color: rgb(49, 53, 57);
-    padding: 20px;
-    border-radius: 8px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.guest-label {
-    color: rgb(153, 153, 153);
+.guests-container {
+  background-color: white;
 }
 
+.stepper-btn {
+  background-color: white;
+  border: none;
+}
 
+.stepper-container {
+  border: 1px solid #ced4da;
+}
 
-
-
-/* 1. Ser till att DatePicker tar upp hela bredden i sin kolumn */
 .react-datepicker-wrapper {
-    display: block !important;
-    width: 100% !important;
+  display: block !important;
+  width: 100% !important;
 }
 
-/* 2. Samlad stil för alla rutor (Datum och Gäster) */
 .react-datepicker__input-container input,
 .booking-details-container input[type="number"] {
-    display: block !important;
-    width: 100% !important;
-    padding: 0.5rem 0.75rem !important;
-    background-color: #ffffff !important;
-    border: 1px solid #ced4da !important;
-    border-radius: 0.375rem !important;
-    box-shadow: 0 2px 2px black;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+  display: block !important;
+  width: 100% !important;
+  padding: 0.5rem 0.75rem !important;
+  background-color: #ffffff !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.375rem !important;
+  box-shadow: 0 2px 2px black;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out !important;
 }
 
 /* 3. Snygg effekt när man klickar i rutan */
 .react-datepicker__input-container input:focus,
 .booking-details-container input[type="number"]:focus {
-    border-color: #86b7fe !important;
-    outline: 0 !important;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25), 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+  border-color: #86b7fe !important;
+  outline: 0 !important;
+  box-shadow:
+    0 0 0 0.25rem rgba(13, 110, 253, 0.25),
+    0 4px 6px rgba(0, 0, 0, 0.3) !important;
 }

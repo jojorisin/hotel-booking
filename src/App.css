@@ -3,25 +3,18 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f9fa;
-
-
-
 }
 
 #root {
   margin: 0 auto;
   width: 100%;
-
   text-align: center;
 }
 
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.header-logo {
+  cursor: pointer;
 }
+
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -61,21 +54,31 @@ body {
   min-height: 100vh;
 }
 
-.home-header {
-  background-color: white;
-  height: 100px;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgb(138, 138, 138)
+.home-header .dropdown-toggle::after {
+  display: none !important;
+
+
+}
+
+.home-header .nav-link,
+.home-header .dropdown-toggle,
+.home-header .dropdown-item {
+  color: black !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+  transform: scale(1.01);
+  color: #888 !important;
+  background-color: transparent !important;
+}
+
+
+.header-menu {
+  color: black;
 }
 
 .header-logo {
@@ -83,17 +86,8 @@ body {
   object-fit: contain;
   justify-content: center;
   padding-bottom: 5px;
-
-
-
 }
 
-.header-spacer,
-.nav-menu {
-  flex: 1;
-  display: flex;
-
-}
 
 nav button {
   background: none;
@@ -106,9 +100,4 @@ nav button {
 nav button:hover {
   transform: scale(1.1);
 
-}
-
-.nav-menu {
-  justify-content: flex-end;
-  padding-right: 50px;
 }
