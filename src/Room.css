@@ -1,26 +1,21 @@
-.room-text-area {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-
-
-.amenities-list {
-    padding-top: 25px;
-
-
-}
-
-.cost-and-book {
-    padding-top: 25px;
-}
-
 .book-now-btn {
-    background-color: rgb(49, 53, 57);
-    border: none;
+  background-color: rgb(49, 53, 57);
+  border: none;
 }
 
 .book-now-btn:hover {
-    transform: scale(1.1);
-    background-color: rgb(68, 73, 79);
+  transform: scale(1.01);
+  background-color: rgb(68, 73, 79);
+}
+
+.description-text {
+  font-size: 0.9rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.cost-col {
+  font-size: 0.8rem;
 }
