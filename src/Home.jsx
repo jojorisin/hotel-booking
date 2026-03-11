@@ -1,16 +1,13 @@
-import { useState } from "react";
 import "./Home.css";
-import DatePickerComponent from "./DatePickerComponent";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
-function Home({ setPage, setBookingDetails }) {
+function Home({ setPage }) {
   return (
     <>
       <main>
         <section className="hero-section">
-          <h1>Welcome to another world</h1>
+          <h1 className="welcome-h1" onClick={() => setPage("booking")}>
+            Welcome to another world
+          </h1>
         </section>
       </main>
     </>

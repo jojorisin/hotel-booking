@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Booking from "./Booking";
 import Home from "./Home";
+import Contact from "./Contact";
 import "./App.css";
 import About from "./About";
 import Footer from "./Footer";
@@ -55,6 +56,8 @@ function App() {
         )}
 
         {page === "about" && <About setPage={setPage} />}
+
+        {page === "contact" && <Contact setPage={setPage} />}
       </main>
       <Footer />
     </div>

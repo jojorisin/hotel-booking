@@ -1,40 +1,112 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import './Room.css';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import "./Room.css";
+import { Carousel } from "react-bootstrap";
 
-function Room({ name, exteriorImage, interiorImage, description, amenities, price, nights, totalCost, onSelect }) {
-    return (
+function Room({
+  name,
+  exteriorImage,
+  interiorImage,
+  description,
+  maxGuests,
+  size,
+  mountainView,
+  forestView,
+  seaView,
+  price,
+  nights,
+  totalCost,
+  onSelect,
+}) {
+  return (
+    <Row className="room-info g-0 bg-white  shadow-sm">
+      <Col xs={12} md={6}>
+        <Carousel interval={null} className="room-carousel shadow-sm ">
+          <Carousel.Item>
+            <img
+              xs={12}
+              className="d-block w-100 mx-auto img-fluid"
+              src={interiorImage}
+              alt="Interior image"
+              style={{ height: "300px", width: "500px", objectFit: "cover", objectPosition: "30% 70%" }}
+            />
+          </Carousel.Item>
 
-        <Row className="room-info g-0 bg-white rounded shadow-sm">
-            <Col className="exterior-image-col" xs={12} md={6}>
-                <img src={exteriorImage} alt={name + " exterior"} className="img-fluid" />
+          <Carousel.Item>
+            <img
+              className="d-block w-100 mx-auto img-fluid"
+              src={exteriorImage}
+              alt="Exterior image"
+              style={{ height: "300px", width: "500px", objectFit: "cover", objectPosition: "30% 70%" }}
+            />
+          </Carousel.Item>
+        </Carousel>
+      </Col>
+
+      <Col className="room-text-area p-3" xs={12} md={6}>
+        <h3 className="text-dark-emphasis fw-bold text-start">{name}</h3>
+
+        <Row className="amenities-row small g-3 flex-wrap">
+          <Col className="col-auto text-start border-end">
+            <span>Max guests </span>
+            <i class="bi bi-person-standing"></i>
+            <span> {maxGuests}</span>
+          </Col>
+          <Col className="col-auto border-end">
+            <i class="bi bi-rulers "></i>
+            <span> {size}</span>
+          </Col>
+          <Col className="col-auto">
+            <i class="bi bi-wifi"></i>
+            <span>Free wifi</span>
+          </Col>
+          {seaView && (
+            <Col className="col-auto sea-view-info">
+              <i className="bi bi-water me-2"></i>
+              <span>Sea View</span>
             </Col>
-            <Col className="interior-image-col" xs={12} md={6}>
-                <img src={interiorImage} alt={name + " interior"} className="img-fluid" />
+          )}
+
+          {mountainView && (
+            <Col className="col-auto">
+              <i class="bi bi-card-image"></i> <span>Mountain view</span>
             </Col>
-            <Col className="room-text-area p-4" xs={12}>
-                <h3 className="text-dark ">{name}</h3>
-                <p className="text-body-secondary">{description}</p>
-                <Row className="amenities-row">
-                    <Col className="text-start" xs={12} md={6}>
-                        <ul className="amenities-list">
-                            {amenities && amenities.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                    </Col>
-                    <Col className="cost-and-book mt-5" xs={12} md={6}>
-                        <p className="fw-semibold mb-1">Total cost for {nights}{nights === 1 ? " night" : " nights"}: €{totalCost}</p>
-                        <p className="text-body-secondary">Cost per night: €{price}</p>
-                        <Button type="submit" className="book-now-btn" size="lg" onClick={() => { onSelect({ name, totalCost, price }); }}>Book now</Button>
-                    </Col>
-                </Row>
+          )}
+
+          {forestView && (
+            <Col className="col-auto sea-view-info">
+              <i class="bi bi-tree"></i>
+              <span>Forest view</span>
             </Col>
+          )}
         </Row>
 
-    )
+        <p className="text-body-secondary description-text text-start mt-4">{description}</p>
+
+        <Row className="border-top align-items-center">
+          <Col className="cost-col" xs={6} md={6}>
+            <p className="fw-semibold text-muted text-start mb-0 mt-2 small">
+              Total cost for {nights}
+              {nights === 1 ? " night" : " nights"}: €{totalCost}
+            </p>
+            <p className="text-secondary text-start ">Cost per night: €{price}</p>
+          </Col>
+          <Col xs={6} md={6} className="text-end">
+            <Button
+              type="submit"
+              className="book-now-btn rounded-0 "
+              onClick={() => {
+                onSelect({ name, totalCost, price });
+              }}>
+              Book now
+            </Button>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  );
 }
 
 export default Room;
