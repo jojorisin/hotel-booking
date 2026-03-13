@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="home-header">
+      <header className="home-header pb-3">
         <Container className="">
           <Row className="align-items-center">
             <Col xs={4} className="d-flex justify-content-start">

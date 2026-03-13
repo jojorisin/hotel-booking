@@ -1,5 +1,6 @@
 .hero-section {
-  background-image: url("/hero2.png");
+  background-image: url("/ho4.jpg");
+  transition: transform 0.3s ease;
   background-size: cover;
   width: 100%;
   min-height: 100vh;
@@ -8,6 +9,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.hero-section:hover {
+  overflow: hidden;
+  transform: scale(1.02);
+}
+main {
+  overflow: hidden;
 }
 
 .welcome-h1:hover {
@@ -18,7 +26,7 @@
 
 .hero-section h1 {
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .make-reservation-btn {

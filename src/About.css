@@ -1,30 +1,41 @@
 .about-quote {
-    background-image: url('/hero2.png');
-    background-size: cover;
-    font-size: 5rem;
-    font-style: italic;
-    text-align: center;
-    margin: 150px auto;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    line-height: 1.4;
-    background-color: white;
-    color: white;
-    text-shadow: 1px 1px gray;
-    border: 1px solid rgb(192, 192, 201);
+  font-size: 4rem;
+  font-style: italic;
+  text-align: center;
+  margin: auto;
+  line-height: 1.4;
+  color: white;
+  text-shadow: 1px 1px gray;
 }
 
-.mission-image,
-.values-image {
-    width: 100%;
-    /* Gör den responsiv */
-    max-width: 400px;
-    /* Här sätter du exakt hur stor du vill att bilden ska vara */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    /* Centrerar bilden i kolumnen */
-    border-radius: 12px;
-    filter: grayscale(100%);
+.values-quote-div {
+  background-image: url("/blue_moon_sky.jpg");
+  transition: transform 0.3s ease;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+  background-position: center center;
+}
 
+.values-quote {
+  font-size: 4rem;
+}
+
+.quote-div {
+  background-image: url("/mountain_peak.jpg");
+  transition: transform 0.3s ease;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+}
+
+.quote-div:hover,
+.values-quote-div:hover {
+  overflow: hidden;
+  transform: scale(1.02);
+}
+.values-quote-wrapper,
+.about-quote-wrapper {
+  overflow: hidden;
 }

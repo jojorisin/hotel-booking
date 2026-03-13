@@ -1,11 +1,21 @@
 .rate-text {
-    color: #d6a07d;
+  color: #d6a07d;
 }
 
 .required-label::after {
-    content: " *";
-    color: #e74c3c;
-    /* En snygg röd färg */
-    font-weight: bold;
-    margin-left: 4px;
+  content: " *";
+  color: #e74c3c;
+  /* En snygg röd färg */
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.confirm-booking-btn {
+  background-color: rgb(49, 53, 57);
+  border: none;
+}
+
+.confirm-booking-btn:hover {
+  transform: scale(1.01);
+  background-color: rgb(68, 73, 79);
 }
