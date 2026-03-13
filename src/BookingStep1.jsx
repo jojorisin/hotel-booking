@@ -55,12 +55,15 @@ function BookingStep1({ setStep, setBookingDetails }) {
       alert("Please fill in all fields before continuing.");
       return;
     }
+    const totalCost = nights * room.price;
+
     setBookingDetails((prev) => ({
       ...prev,
       arrivalDate: arrivalDate,
       departureDate: departureDate,
       guests: guests,
-      selectedRoom: { name: room.name, price: room.totalCost },
+      selectedRoom: { name: room.name, price: room.price },
+      totalCost: totalCost,
       nights: nights,
     }));
     setStep(2);

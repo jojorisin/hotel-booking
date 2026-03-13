@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Room from "./Room";
 import { rooms } from "./roomData";
 import "./BookingStep2.css";
+import Button from "react-bootstrap/Button";
 
 function BookingStep2({ setPage, bookingDetails }) {
   const handleSubmit = (e) => {
@@ -22,7 +23,7 @@ function BookingStep2({ setPage, bookingDetails }) {
       }),
       guests: bookingDetails.guests,
       room: bookingDetails.selectedRoom.name,
-      totalCost: bookingDetails.selectedRoom.totalCost,
+      totalCost: bookingDetails.totalCost,
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -105,12 +106,12 @@ function BookingStep2({ setPage, bookingDetails }) {
             <div className="text-start bg-white p-5 shadow">
               <h3 className="fw-bold">Your reservation</h3>
               <p>
-                <strong>{bookingDetails.selectedRoom.name}</strong>
+                <strong className="text-muted">{bookingDetails.selectedRoom.name}</strong>
               </p>
               <p>
                 {bookingDetails.guests} guests | {bookingDetails.nights} nights
               </p>
-              <p>
+              <p className="text-secondary">
                 {bookingDetails.arrivalDate?.toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
@@ -128,13 +129,13 @@ function BookingStep2({ setPage, bookingDetails }) {
               <p className="rate-text small fw-light mb-1">Daily rate including breakfast</p>
               <p className="small fw-light mt-3">{bookingDetails.selectedRoom.price}€/ per night</p>
               <hr />
-              <h5>Total Price: {bookingDetails.selectedRoom.totalCost}€</h5>
+              <h5>Total Price: {bookingDetails.totalCost}€</h5>
+              <Col>
+                <Button className="confirm-booking-btn rounded-0 mt-2" form="booking-form" type="submit">
+                  Confirm booking
+                </Button>
+              </Col>
             </div>
-          </Col>
-          <Col>
-            <button form="booking-form" type="submit">
-              Confirm booking
-            </button>
           </Col>
         </Row>
       </Container>
