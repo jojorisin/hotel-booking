@@ -4,11 +4,6 @@
   background-size: cover;
   width: 100%;
   min-height: 100vh;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .hero-section:hover {
   overflow: hidden;
@@ -24,15 +19,11 @@ main {
   color: rgb(228, 228, 228);
 }
 
-.hero-section h1 {
-  color: white;
-  font-size: 4rem;
+.welcome-h1 {
+  margin-top: 300px;
 }
 
-.make-reservation-btn {
-  font-size: 1.5rem;
+.hero-section h1 {
   color: white;
-  border: none;
-  background: none;
-  margin-top: -50px;
+  font-size: 3.7rem;
 }

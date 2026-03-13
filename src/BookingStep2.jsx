@@ -40,14 +40,14 @@ function BookingStep2({ setPage, bookingDetails }) {
   const [phone, setPhone] = useState("");
 
   return (
-    <>
+    <div className="confirm-booking-div">
       <Container className="confirm-booking-container mt-5">
-        <Row className="align-items-center g-5">
-          <Col xs={12} md={6} className="mb-3 text-start bg-white border shadow p-5">
-            <h3 className="mb-3">Guest information</h3>
+        <Row className="align-items-center p-5 g-5">
+          <Col xs={12} md={6} className=" text-start bg-white border shadow p-5">
+            <h3 className="mb-3 fw-medium">Guest information</h3>
             <form id="booking-form" onSubmit={(e) => handleSubmit(e)}>
               <div className="mb-3">
-                <label htmlFor="firstName" className="form-label required-label">
+                <label htmlFor="firstName" className="form-label text-muted required-label">
                   First Name
                 </label>
                 <input
@@ -60,7 +60,7 @@ function BookingStep2({ setPage, bookingDetails }) {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="lastName" className="form-label  required-label">
+                <label htmlFor="lastName" className="form-label text-muted required-label">
                   Last Name
                 </label>
 
@@ -96,14 +96,13 @@ function BookingStep2({ setPage, bookingDetails }) {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  required
                 />
               </div>
             </form>
           </Col>
 
-          <Col className="d-flex justify-content-center justify-content-md-end" xs={12} md={6}>
-            <div className="text-start bg-white p-5 shadow">
+          <Col className="d-flex justify-content-center  justify-content-md-end" xs={12} md={6}>
+            <div className="text-start bg-white shadow p-5 ">
               <h3 className="fw-bold">Your reservation</h3>
               <p>
                 <strong className="text-muted">{bookingDetails.selectedRoom.name}</strong>
@@ -139,7 +138,7 @@ function BookingStep2({ setPage, bookingDetails }) {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 export default BookingStep2;

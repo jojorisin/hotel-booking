@@ -13,9 +13,9 @@ function About({ setPage }) {
         </div>
       </div>
       <Container fluid className=" about-container ">
-        <Row className=" mission-row align-items-center m-5 p-5">
+        <Row className=" mission-row align-items-center m-5 p-3">
           <Col xs={12} md={6}>
-            <h2 className="text-dark">Our Mission</h2>
+            <h2 className="text-dark mb-4">Our Mission</h2>
           </Col>
           <Col xs={12} md={6}>
             <p className="text-start">
@@ -35,7 +35,7 @@ function About({ setPage }) {
         </div>
       </div>
       <Container>
-        <Row className=" p-5 m-5 values-row align-items-center">
+        <Row className=" p-3 m-5 values-row align-items-center">
           <Col xs={12} md={6} className="values-container">
             <h2 className="mb-4">Our Values</h2>
           </Col>

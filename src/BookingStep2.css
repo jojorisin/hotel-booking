@@ -2,6 +2,14 @@
   color: #d6a07d;
 }
 
+.confirm-booking-div {
+  background-image: url("/mountain_snow.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  background-position: 80% 20%;
+}
+
 .required-label::after {
   content: " *";
   color: #e74c3c;
