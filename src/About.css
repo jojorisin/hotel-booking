@@ -12,7 +12,7 @@
   background-image: url("/blue_moon_sky.jpg");
   transition: transform 0.3s ease;
   background-size: cover;
-  width: 100%;
+  width: 100vw;
   height: 80vh;
   background-position: center center;
 }

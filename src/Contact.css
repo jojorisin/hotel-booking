@@ -1,9 +1,16 @@
 .message-btn {
-    background-color: rgb(49, 53, 57);
-    border: none;
+  background-color: rgb(49, 53, 57);
+  border: none;
 }
 
 .message-btn:hover {
-    transform: scale(1.1);
-    background-color: rgb(68, 73, 79);
+  transform: scale(1.1);
+  background-color: rgb(68, 73, 79);
+}
+
+.contact-div {
+  background-image: url("/snow_sun.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
 }
