@@ -2,24 +2,29 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import "./Contact.css";
+import "./styles/Contact.css";
+import { Helmet } from "react-helmet-async";
 
 function Contact({ setPage }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    alert("Thanks for your message! We will get back to you shortly.");
     setPage("home");
-    setTimeout(() => {
-      alert("Thanks for your message! We will get back to you shortly.");
-    }, 100);
   };
 
   return (
     <div className="contact-div p-5">
+      <Helmet>
+        <title>Contact Us | Get in Touch with Bautasten Resort</title>
+        <meta
+          name="description"
+          content="Have questions about your stay? Contact Bautasten Resort for bookings, directions, and inquiries about our eco-friendly accommodations."
+        />
+      </Helmet>
       <Container className="message-form-container mt-5">
         <Row className="justify-content-center g-5">
           <Col xs={12} className="mb-3 text-start bg-white border shadow p-5">
-            <h3 className="mb-3">Send us a message</h3>
+            <h1 className="mb-3">Contact us</h1>
             <form id="message-form" onSubmit={(e) => handleSubmit(e)}>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">

@@ -2,37 +2,43 @@ import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Room from "./Room";
-import { rooms } from "./roomData";
-import "./BookingStep2.css";
+import "./styles/BookingStep2.css";
 import Button from "react-bootstrap/Button";
 
 function BookingStep2({ setPage, bookingDetails }) {
+  const {
+    arrivalDate,
+    departureDate,
+    nights,
+    guests,
+    totalCost,
+    selectedRoom: { name, price },
+  } = bookingDetails;
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const bookingData = {
-      arrivalDate: bookingDetails.arrivalDate.toLocaleDateString("en-US", {
+      arrivalDate: arrivalDate.toLocaleDateString("en-US", {
         day: "numeric",
         month: "long",
         year: "numeric",
       }),
-      departureDate: bookingDetails.departureDate.toLocaleDateString("en-US", {
+      departureDate: departureDate.toLocaleDateString("en-US", {
         day: "numeric",
         month: "long",
         year: "numeric",
       }),
-      guests: bookingDetails.guests,
-      room: bookingDetails.selectedRoom.name,
-      totalCost: bookingDetails.totalCost,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
+      guests,
+      room: name,
+      totalCost,
+      firstName,
+      lastName,
+      email,
     };
+
     localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    alert("Booking confirmed! Check your email for details.");
     setPage("home");
-    setTimeout(() => {
-      alert("Booking confirmed! Check your email for details.");
-    }, 100);
   };
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -105,20 +111,20 @@ function BookingStep2({ setPage, bookingDetails }) {
             <div className="text-start bg-white shadow p-5 ">
               <h3 className="fw-bold">Your reservation</h3>
               <p>
-                <strong className="text-muted">{bookingDetails.selectedRoom.name}</strong>
+                <strong className="text-muted">{name}</strong>
               </p>
               <p>
-                {bookingDetails.guests} guests | {bookingDetails.nights} nights
+                {guests} guests | {nights} nights
               </p>
               <p className="text-secondary">
-                {bookingDetails.arrivalDate?.toLocaleDateString("en-US", {
+                {arrivalDate?.toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
                   day: "numeric",
                   year: "numeric",
                 })}{" "}
                 -{" "}
-                {bookingDetails.departureDate?.toLocaleDateString("en-Us", {
+                {departureDate?.toLocaleDateString("en-Us", {
                   weekday: "short",
                   month: "short",
                   day: "numeric",
@@ -126,9 +132,9 @@ function BookingStep2({ setPage, bookingDetails }) {
                 })}
               </p>
               <p className="rate-text small fw-light mb-1">Daily rate including breakfast</p>
-              <p className="small fw-light mt-3">{bookingDetails.selectedRoom.price}€/ per night</p>
+              <p className="small fw-light mt-3">{price}€/ per night</p>
               <hr />
-              <h5>Total Price: {bookingDetails.totalCost}€</h5>
+              <h5>Total Price: {totalCost}€</h5>
               <Col>
                 <Button className="confirm-booking-btn rounded-0 mt-2" form="booking-form" type="submit">
                   Confirm booking
