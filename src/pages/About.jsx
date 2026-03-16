@@ -1,21 +1,30 @@
-import { useState } from "react";
-import "./About.css";
+import "./styles/About.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Helmet } from "react-helmet-async";
 
-function About({ setPage }) {
+function About() {
   return (
     <section className="about-section">
-      <div className="about-quote-wrapper">
-        <div className="quote-div">
-          <blockquote className=" about-quote pt-5">"Nature is not a place to visit. It is a home."</blockquote>
-        </div>
+      <Helmet>
+        <title>About Us | Bautasten Resort Mission & Values</title>
+        <meta
+          name="description"
+          content="Discover the story of Bautasten Resort. Learn about our commitment to environmental stewardship, sustainability, and our mission to make guests care for nature."
+        />
+      </Helmet>
+      <h1 className="visually-hidden">About Bautasten resort</h1>
+      <div className="hotel-quote-div">
+        <blockquote className="pt-5 text-white values-quote">
+          Not <em>just</em> a hotel
+        </blockquote>
       </div>
-      <Container fluid className=" about-container ">
-        <Row className=" mission-row align-items-center m-5 p-3">
+
+      <Container fluid className="bg-white p-5 about-container ">
+        <Row as="article" className="mission-row align-items-center m-4 p-3">
           <Col xs={12} md={6}>
-            <h2 className="text-dark mb-4">Our Mission</h2>
+            <h2 className="mb-4">Our Mission</h2>
           </Col>
           <Col xs={12} md={6}>
             <p className="text-start">
@@ -27,15 +36,11 @@ function About({ setPage }) {
           </Col>
         </Row>
       </Container>
-      <div className="values-quote-wrapper">
-        <div className="values-quote-div">
-          <blockquote className="pt-5 text-white values-quote">
-            Not <em>just</em> a hotel
-          </blockquote>
-        </div>
-      </div>
-      <Container>
-        <Row className=" p-3 m-5 values-row align-items-center">
+
+      <div className="image-spacer"></div>
+
+      <Container fluid className="bg-white w-100 p-5">
+        <Row as="article" className=" values-row align-items-center m-4 p-3">
           <Col xs={12} md={6} className="values-container">
             <h2 className="mb-4">Our Values</h2>
           </Col>
@@ -50,6 +55,7 @@ function About({ setPage }) {
           </Col>
         </Row>
       </Container>
+      <div className="image-spacer"></div>
     </section>
   );
 }
