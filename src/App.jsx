@@ -5,16 +5,22 @@ import Contact from "./pages/Contact";
 import "./App.css";
 import About from "./pages/About";
 import Footer from "./components/common/Footer";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import Header from "./components/common/Header";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+function RootLayout() {
+  return (
+    <div className="App">
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
-  const [page, setPage] = useState("home");
   const today = new Date();
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
@@ -28,24 +34,20 @@ function App() {
     totalCost: null,
   });
 
-  return (
-    <div className="App">
-      <Header setPage={setPage} />
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "about", element: <About /> },
+        { path: "contact", element: <Contact /> },
+        { path: "booking", element: <Booking bookingDetails={bookingDetails} setBookingDetails={setBookingDetails} /> },
+      ],
+    },
+  ]);
 
-      <main>
-        {page === "home" && <Home setPage={setPage} />}
-
-        {page === "booking" && (
-          <Booking setPage={setPage} bookingDetails={bookingDetails} setBookingDetails={setBookingDetails} />
-        )}
-
-        {page === "about" && <About />}
-
-        {page === "contact" && <Contact setPage={setPage} />}
-      </main>
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

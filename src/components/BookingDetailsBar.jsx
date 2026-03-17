@@ -4,11 +4,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DesktopInput from "./common/DesktopInput";
-import "./common/DesktopInput";
 import { calculateNights } from "../utils/bookingUtil";
 import { useWindowSize } from "../hooks/useWindowSize";
+import "./BookingDetailsBar.css";
 
-function DatePickerComponent({ bookingDetails, setBookingDetails }) {
+function BookingDetailsBar({ bookingDetails, setBookingDetails }) {
   const isDesktop = useWindowSize();
   const nights = calculateNights(bookingDetails.arrivalDate, bookingDetails.departureDate);
 
@@ -35,13 +35,12 @@ function DatePickerComponent({ bookingDetails, setBookingDetails }) {
   return (
     <Container className="booking-details-container bg-white mb-5 shadow-sm">
       <Row className=" align-items-center ">
-        <label className="form-label"></label>
         {isDesktop ? (
           <>
-            <Col xs={8}>
+            <Col xs={8} className="ps-0">
               <DatePicker
                 customInput={<DesktopInput />}
-                className="form-control mx-0"
+                className="form-control"
                 calendarClassName="fluid-calendar"
                 popperClassName="desktop-popper"
                 popperPlacement="bottom-start"
@@ -59,15 +58,23 @@ function DatePickerComponent({ bookingDetails, setBookingDetails }) {
               <span className="text-secondary small">Nights</span>
               <span className="text-muted fw-bold">{nights}</span>
             </Col>
-            <Col className="guests-container border-start d-flex flex-row align-items-center ms-5">
+            <Col className="guests-container border-start d-flex flex-row align-items-center">
               <i class="bi bi-people"></i>
               <label className="guest-label ms-3 me-5 mb-0">Guests</label>
               <div className="stepper-container">
-                <button type="button" className="stepper-btn me-3 " onClick={() => updateGuests(-1)}>
+                <button
+                  type="button"
+                  className="stepper-btn me-2"
+                  aria-label="Decrease guests"
+                  onClick={() => updateGuests(-1)}>
                   –
                 </button>
                 <span className="stepper-value">{bookingDetails.guests}</span>
-                <button type="button" className="stepper-btn ms-3" onClick={() => updateGuests(1)}>
+                <button
+                  type="button"
+                  className="stepper-btn ms-2"
+                  aria-label="Increase guests"
+                  onClick={() => updateGuests(1)}>
                   +
                 </button>
               </div>
@@ -88,20 +95,28 @@ function DatePickerComponent({ bookingDetails, setBookingDetails }) {
                 required
               />
             </Col>
-            <Col xs={12} md={12} className="guests-container d-flex mt-4">
+            <Col xs={12} className="guests-container d-flex mt-3">
               <i className="bi bi-people me-2"></i>
               <label className="guest-label ">Guests</label>
-              <div className="stepper-container  me-2 ms-auto">
-                <button type="button" className="stepper-btn me-3 " onClick={() => updateGuests(-1)}>
+              <div className="stepper-container me-1 ms-auto">
+                <button
+                  type="button"
+                  className="stepper-btn me-2 "
+                  aria-label="Decrease guests"
+                  onClick={() => updateGuests(-1)}>
                   –
                 </button>
                 <span className="stepper-value">{bookingDetails.guests}</span>
-                <button type="button" className="stepper-btn ms-3" onClick={() => updateGuests(1)}>
+                <button
+                  type="button"
+                  className="stepper-btn ms-2"
+                  aria-label="Increase guests"
+                  onClick={() => updateGuests(1)}>
                   +
                 </button>
               </div>
             </Col>
-            <Col xs={12} className=" d-flex justify-content-between align-items-center mt-3 mb-3 ">
+            <Col xs={12} className="d-flex justify-content-between align-items-center mt-3 mb-3 ">
               <span className="text-secondary small  ">Nights</span>
               <span className="text-muted fw-bold me-5">{nights}</span>
             </Col>
@@ -111,4 +126,4 @@ function DatePickerComponent({ bookingDetails, setBookingDetails }) {
     </Container>
   );
 }
-export default DatePickerComponent;
+export default BookingDetailsBar;

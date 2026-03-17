@@ -7,26 +7,22 @@ const DesktopInput = React.forwardRef(({ value, onClick }, ref) => {
 
   return (
     <div
-      className="bg-white desktop-input-div rounded p-3 w-100"
+      className="bg-white desktop-input-div rounded p-3 shadow-sm"
       onClick={onClick}
       ref={ref}
       style={{ cursor: "pointer" }}>
       <Row className="align-items-center g-0">
-        <Col xs="auto" className="px-3 border-end">
+        <Col xs="auto" className=" border-end">
           <i className="bi bi-calendar3 text-muted"></i>
         </Col>
 
         <Col className="px-3 border-end">
-          <div className="text-secondary small " style={{}}>
-            Checkin
-          </div>
+          <div className="text-secondary small">Checkin</div>
           <div className="text-muted fw-bold text-nowrap">{arrival || "Välj datum"}</div>
         </Col>
 
-        <Col className="px-3 border-end">
-          <div className="text-secondary small " style={{}}>
-            Checkout
-          </div>
+        <Col className="px-3">
+          <div className="text-secondary small">Checkout</div>
           <div className="text-muted fw-bold text-nowrap">{departure || "Välj datum"}</div>
         </Col>
       </Row>
