@@ -1,14 +1,73 @@
-.hero-guest-label {
-    color: white;
+.desktop-popper .react-datepicker {
+  width: 100% !important;
+  display: flex !important;
+  border: none !important;
 }
 
-.check-btn {
-    background-color: rgb(49, 53, 57);
-    border: none;
-
+.fluid-calendar .react-datepicker__month-container {
+  width: 50% !important;
+  float: none !important;
 }
 
-.check-btn:hover {
-    transform: scale(1.1);
-    background-color: rgb(68, 73, 79);
+.fluid-calendar .react-datepicker__header,
+.fluid-calendar .react-datepicker__month {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.fluid-calendar .react-datepicker__day-name,
+.fluid-calendar .react-datepicker__day {
+  width: 10% !important;
+  margin: 0.5% !important;
+  line-height: 3rem;
+}
+
+.desktop-popper {
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .react-datepicker,
+  .react-datepicker__month-container {
+    width: 100% !important;
+    display: block;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day {
+    width: 13% !important;
+    margin: 0.5% !important;
+    line-height: 2.5rem;
+  }
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: rgb(154, 153, 153) !important;
+  color: black !important;
+  border-radius: 0.3rem;
+}
+
+.react-datepicker__day:hover {
+  background-color: rgb(230, 229, 229) !important;
+}
+
+.booking-details-container {
+  position: relative;
+}
+
+.stepper-btn {
+  background-color: white;
+  border: none;
+}
+
+.stepper-container {
+  border: 1px solid #ced4da;
+}
+
+.react-datepicker-wrapper {
+  position: relative;
+  display: block !important;
+  width: 100% !important;
 }

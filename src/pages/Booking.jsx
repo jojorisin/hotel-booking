@@ -3,7 +3,7 @@ import BookingStep1 from "./BookingStep1";
 import BookingStep2 from "./BookingStep2";
 import { Helmet } from "react-helmet-async";
 
-function Booking({ setPage, bookingDetails, setBookingDetails }) {
+function Booking({ bookingDetails, setBookingDetails }) {
   const [step, setStep] = useState(1);
 
   return (
@@ -18,7 +18,7 @@ function Booking({ setPage, bookingDetails, setBookingDetails }) {
       {step === 1 && (
         <BookingStep1 setStep={setStep} bookingDetails={bookingDetails} setBookingDetails={setBookingDetails} />
       )}
-      {step === 2 && <BookingStep2 setStep={setStep} setPage={setPage} bookingDetails={bookingDetails} />}
+      {step === 2 && <BookingStep2 setStep={setStep} bookingDetails={bookingDetails} />}
     </>
   );
 }

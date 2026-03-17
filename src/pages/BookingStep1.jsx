@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -7,7 +6,7 @@ import Room from "../components/common/Room";
 import { rooms } from "../data/roomData";
 import "./styles/BookingStep1.css";
 import "../components/common/DesktopInput";
-import DatePickerComponent from "../components/BookingDetailsBar";
+import BookingDetailsBar from "../components/BookingDetailsBar";
 
 function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
   const nights = bookingDetails.nights || 0;
@@ -39,9 +38,7 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()}>
-        <DatePickerComponent
-          bookingDetails={bookingDetails}
-          setBookingDetails={setBookingDetails}></DatePickerComponent>
+        <BookingDetailsBar bookingDetails={bookingDetails} setBookingDetails={setBookingDetails}></BookingDetailsBar>
 
         <Container className="bg-light mb-5">
           <Row className="g-3 pb-2 mx-2">

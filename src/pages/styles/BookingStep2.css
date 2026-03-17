@@ -13,8 +13,6 @@
 .required-label::after {
   content: " *";
   color: #e74c3c;
-  /* En snygg röd färg */
-  font-weight: bold;
   margin-left: 4px;
 }
 
