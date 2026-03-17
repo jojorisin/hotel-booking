@@ -5,7 +5,7 @@
 
 .message-btn:hover {
   transform: scale(1.02);
-  background-color: rgb(68, 73, 79);
+  background-color: rgb(68, 73, 79) !important;
 }
 
 .contact-div {

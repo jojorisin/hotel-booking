@@ -12,8 +12,8 @@ function Home() {
           content="Welcome to Bautasten Resort. Experience a sustainable getaway where modern eco-luxury meets the untouched beauty of the forest."
         />
       </Helmet>
-      <section className="hero-section d-flex flex-column">
-        <Link to="/booking" style={{ textDecoration: "none" }}>
+      <section className="hero-section d-flex justify-content-center">
+        <Link className="hero-link" to="/booking" style={{ textDecoration: "none" }}>
           <h1 className="welcome-h1 shadow-sm fw-medium">Welcome to another world</h1>
         </Link>
       </section>

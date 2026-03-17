@@ -1,13 +1,28 @@
 .hero-section {
-  background-image: url("/hero_image.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/hero_image.jpg");
   transition: transform 0.3s ease;
   background-size: cover;
   width: 100%;
   min-height: 100vh;
+  background-position: 90% bottom;
 }
 .hero-section:hover {
   overflow: hidden;
   transform: scale(1.02);
+}
+
+@media (min-width: 768px) {
+  .hero-link {
+    margin-top: -100px;
+  }
+  .hero-section {
+    background-position: center center;
+  }
+}
+
+.hero-link {
+  margin-top: -140px;
+  padding: 30px;
 }
 
 .welcome-h1:hover {

@@ -5,7 +5,7 @@
 
 .book-now-btn:hover {
   transform: scale(1.01);
-  background-color: rgb(68, 73, 79);
+  background-color: rgb(68, 73, 79) !important;
 }
 
 .description-text {

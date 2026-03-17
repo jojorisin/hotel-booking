@@ -60,6 +60,7 @@
 .stepper-btn {
   background-color: white;
   border: none;
+  color: black !important;
 }
 
 .stepper-container {
