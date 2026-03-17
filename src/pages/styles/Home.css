@@ -16,12 +16,18 @@
     margin-top: -100px;
   }
   .hero-section {
-    background-position: center center;
+    background-position: top center;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-link {
+    margin-top: -200px !important;
   }
 }
 
 .hero-link {
-  margin-top: -140px;
+  margin-top: -150px;
   padding: 30px;
 }
 
