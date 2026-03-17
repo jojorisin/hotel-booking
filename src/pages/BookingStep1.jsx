@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Room from "../components/common/Room";
 import { rooms } from "../data/roomData";
-import "./styles/BookingStep1.css";
 import "../components/common/DesktopInput";
 import BookingDetailsBar from "../components/BookingDetailsBar";
 
