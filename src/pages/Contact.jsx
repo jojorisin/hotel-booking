@@ -55,7 +55,7 @@ function Contact() {
                 <textarea className="form-control " id="message" rows="4" aria-required="true" required></textarea>
               </div>
               <Col xs={12} className="d-flex justify-content-center">
-                <Button size="lg" className="message-btn mt-5" type="submit">
+                <Button size="lg" className="rounded-0 message-btn mt-5" type="submit">
                   Send
                 </Button>
               </Col>
