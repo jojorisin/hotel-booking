@@ -38,7 +38,6 @@ function BookingStep1({ setStep, bookingDetails, setBookingDetails }) {
     <>
       <form onSubmit={(e) => e.preventDefault()}>
         <BookingDetailsBar bookingDetails={bookingDetails} setBookingDetails={setBookingDetails}></BookingDetailsBar>
-
         <Container className="bg-light mb-5">
           <Row className="g-3 pb-2 mx-2">
             {rooms.map((room) => (

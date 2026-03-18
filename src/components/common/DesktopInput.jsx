@@ -6,11 +6,7 @@ const DesktopInput = React.forwardRef(({ value, onClick }, ref) => {
   const [arrival, departure] = value.split(" - ");
 
   return (
-    <div
-      className="bg-white desktop-input-div rounded p-3 shadow-sm"
-      onClick={onClick}
-      ref={ref}
-      style={{ cursor: "pointer" }}>
+    <div className="bg-white desktop-input-div rounded p-3" onClick={onClick} ref={ref} style={{ cursor: "pointer" }}>
       <Row className="align-items-center g-0">
         <Col xs="auto" className=" border-end">
           <i className="bi bi-calendar3 text-muted"></i>

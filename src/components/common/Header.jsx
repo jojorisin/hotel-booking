@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="home-header pb-3">
-      <Container className="">
+    <header className="home-header">
+      <Container fluid>
         <Row className="align-items-center">
           <Col xs={4} className="d-flex justify-content-start">
             <Nav className="nav-menu">

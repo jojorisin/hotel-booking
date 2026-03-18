@@ -33,97 +33,99 @@ function BookingDetailsBar({ bookingDetails, setBookingDetails }) {
   };
 
   return (
-    <Container className="booking-details-container bg-white mb-5 shadow-sm">
-      <Row className=" align-items-center ">
-        {isDesktop ? (
-          <>
-            <Col xs={8} className="ps-0">
-              <DatePicker
-                customInput={<DesktopInput />}
-                className="form-control"
-                calendarClassName="fluid-calendar"
-                popperClassName="desktop-popper"
-                popperPlacement="bottom-start"
-                selected={bookingDetails.arrivalDate}
-                onChange={(dates) => updateDates(dates)}
-                startDate={bookingDetails.arrivalDate}
-                endDate={bookingDetails.departureDate}
-                selectsRange
-                monthsShown={2}
-                minDate={new Date()}
-                required
-              />
-            </Col>
-            <Col xs={1} className="d-flex flex-column align-items-center ">
-              <span className="text-secondary small">Nights</span>
-              <span className="text-muted fw-bold">{nights}</span>
-            </Col>
-            <Col className="guests-container border-start d-flex flex-row align-items-center">
-              <i class="bi bi-people"></i>
-              <label className="guest-label ms-3 me-5 mb-0">Guests</label>
-              <div className="stepper-container">
-                <button
-                  type="button"
-                  className="stepper-btn me-2"
-                  aria-label="Decrease guests"
-                  onClick={() => updateGuests(-1)}>
-                  –
-                </button>
-                <span className="stepper-value">{bookingDetails.guests}</span>
-                <button
-                  type="button"
-                  className="stepper-btn ms-2"
-                  aria-label="Increase guests"
-                  onClick={() => updateGuests(1)}>
-                  +
-                </button>
-              </div>
-            </Col>
-          </>
-        ) : (
-          <>
-            <Col xs={12} className="d-flex justify-content-center align-items-center">
-              <DatePicker
-                className="datepicker form-control"
-                selected={bookingDetails.arrivalDate}
-                onChange={(dates) => updateDates(dates)}
-                startDate={bookingDetails.arrivalDate}
-                endDate={bookingDetails.departureDate}
-                selectsRange
-                minDate={new Date()}
-                inline
-                required
-              />
-            </Col>
-            <Col xs={12} className="guests-container d-flex mt-3">
-              <i className="bi bi-people me-2"></i>
-              <label className="guest-label ">Guests</label>
-              <div className="stepper-container me-1 ms-auto">
-                <button
-                  type="button"
-                  className="stepper-btn me-2 "
-                  aria-label="Decrease guests"
-                  onClick={() => updateGuests(-1)}>
-                  –
-                </button>
-                <span className="stepper-value">{bookingDetails.guests}</span>
-                <button
-                  type="button"
-                  className="stepper-btn ms-2"
-                  aria-label="Increase guests"
-                  onClick={() => updateGuests(1)}>
-                  +
-                </button>
-              </div>
-            </Col>
-            <Col xs={12} className="d-flex justify-content-between align-items-center mt-3 mb-3 ">
-              <span className="text-secondary small  ">Nights</span>
-              <span className="text-muted fw-bold me-5">{nights}</span>
-            </Col>
-          </>
-        )}
-      </Row>
-    </Container>
+    <div className="bg-light p-3">
+      <Container className="booking-details-container mt-2 bg-white mb-5 shadow-sm">
+        <Row className=" align-items-center">
+          {isDesktop ? (
+            <>
+              <Col xs={8} className="ps-0">
+                <DatePicker
+                  customInput={<DesktopInput />}
+                  className="form-control"
+                  calendarClassName="fluid-calendar"
+                  popperClassName="desktop-popper"
+                  popperPlacement="bottom-start"
+                  selected={bookingDetails.arrivalDate}
+                  onChange={(dates) => updateDates(dates)}
+                  startDate={bookingDetails.arrivalDate}
+                  endDate={bookingDetails.departureDate}
+                  selectsRange
+                  monthsShown={2}
+                  minDate={new Date()}
+                  required
+                />
+              </Col>
+              <Col xs={1} className="d-flex flex-column align-items-center border-start border-end">
+                <span className="text-secondary small">Nights</span>
+                <span className="text-muted fw-bold">{nights}</span>
+              </Col>
+              <Col className="guests-container d-flex flex-row align-items-center">
+                <i class="bi bi-people"></i>
+                <label className="guest-label ms-3 me-5 mb-0">Guests</label>
+                <div className="stepper-container">
+                  <button
+                    type="button"
+                    className="stepper-btn me-2"
+                    aria-label="Decrease guests"
+                    onClick={() => updateGuests(-1)}>
+                    –
+                  </button>
+                  <span className="stepper-value">{bookingDetails.guests}</span>
+                  <button
+                    type="button"
+                    className="stepper-btn ms-2"
+                    aria-label="Increase guests"
+                    onClick={() => updateGuests(1)}>
+                    +
+                  </button>
+                </div>
+              </Col>
+            </>
+          ) : (
+            <>
+              <Col xs={12} className="d-flex justify-content-center align-items-center">
+                <DatePicker
+                  className="datepicker form-control"
+                  selected={bookingDetails.arrivalDate}
+                  onChange={(dates) => updateDates(dates)}
+                  startDate={bookingDetails.arrivalDate}
+                  endDate={bookingDetails.departureDate}
+                  selectsRange
+                  minDate={new Date()}
+                  inline
+                  required
+                />
+              </Col>
+              <Col xs={12} className="guests-container d-flex mt-3">
+                <i className="bi bi-people me-2"></i>
+                <label className="guest-label ">Guests</label>
+                <div className="stepper-container me-1 ms-auto">
+                  <button
+                    type="button"
+                    className="stepper-btn me-2 "
+                    aria-label="Decrease guests"
+                    onClick={() => updateGuests(-1)}>
+                    –
+                  </button>
+                  <span className="stepper-value">{bookingDetails.guests}</span>
+                  <button
+                    type="button"
+                    className="stepper-btn ms-2"
+                    aria-label="Increase guests"
+                    onClick={() => updateGuests(1)}>
+                    +
+                  </button>
+                </div>
+              </Col>
+              <Col xs={12} className="d-flex justify-content-between align-items-center mt-3 mb-3 ">
+                <span className="text-secondary small  ">Nights</span>
+                <span className="text-muted fw-bold me-5">{nights}</span>
+              </Col>
+            </>
+          )}
+        </Row>
+      </Container>
+    </div>
   );
 }
 export default BookingDetailsBar;
